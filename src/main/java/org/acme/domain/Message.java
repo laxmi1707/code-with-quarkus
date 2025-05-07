@@ -1,7 +1,8 @@
-package org.acme;
+package org.acme.domain;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.Entity;
+
+import jakarta.persistence.*;
 
 
 /**
@@ -24,6 +25,18 @@ import jakarta.persistence.Entity;
  * }
  */
 @Entity
-public class MyEntity extends PanacheEntity {
-    public String field;
+@Table(name="message")
+public class Message extends PanacheEntity {
+    @Column(length = 255, nullable = false)
+    public String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+  
 }
